@@ -21,7 +21,7 @@ function App() {
 							</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#">
+							<a className="nav-link" href="#services">
 								Services
 							</a>
 						</li>
@@ -90,7 +90,7 @@ function App() {
 					</div>
 				</div>
 			</nav>
-			<div className="z-n1 img-gradiant ">
+			<section id="home">
 				<img
 					src="./img/DeckCleaningGradient.png"
 					className="vh-100 w-100 object-fit-cover img-gradiant z-0"
@@ -110,7 +110,41 @@ function App() {
 						Call Us
 					</button>
 				</div>
-			</div>
+			</section>
+			<section id="services" className="container">
+				<h1 className="">Our Services</h1>
+				<div className="row p-3">
+					<img src="./img/ServiceDriveway.png" className="img-fluid col-6 col-xl-3 h-100 m-auto" alt="..."></img>
+					<div className="col-xl col-12">
+						<h2 className="text-xl-start text-center">Driveway Cleaning</h2>
+						<p className="fs-5 paragraph">Revitalize your driveway with our professional pressure washing service! At Dallas Powerwash Pros, we specialize in driveway cleaning that leaves your property looking fresh and pristine. We pay meticulous attention to detail, ensuring that every nook and cranny is thoroughly cleaned. With our expertise, your driveway will be transformed into a welcoming space, enhancing the overall aesthetics of your property.</p>
+					</div>
+				</div>
+				<div className="row p-3">
+					<img src="./img/ServiceSiding.png" className="img-fluid col-6 col-xl-3 h-100 m-auto" alt="..."></img>
+					<div className="col-xl col-12">
+						<h2 className="text-xl-start text-center">Siding Cleaning</h2>
+						<p className="fs-5 paragraph">Revive the beauty of your home's siding with our professional soft washing service at Dallas Powerwash Pros. Over time, siding can accumulate dirt, mildew, algae, and other contaminants. Soft washing is a safe and effective cleaning method that uses low-pressure techniques and environmentally-friendly solutions to gently remove dirt and grime. Whether you have vinyl, wood, stucco, or any other type of siding, we tailor our approach to ensure optimal results. Trust Dallas Powerwash Pros to deliver exceptional results, prompt service, and unmatched customer satisfaction.</p>
+					</div>
+				</div>
+				<div className="row p-3">	
+					<img src="./img/ServiceRoof.png" className="img-fluid col-6 col-xl-3 h-100 m-auto" alt="..."></img>
+					<div className="col-xl col-12">
+						<h2 className="text-xl-start text-center">Roof Cleaning</h2>
+						<p className="fs-5 paragraph">Transform the appearance of your roof with our expert roof cleaning services at Dallas Powerwash Pros. Over time, roofs can become plagued by unsightly stains, moss, algae, and debris, which not only diminish their visual appeal but also compromise their longevity and structural integrity. Using industry-approved techniques and eco-friendly cleaning solutions, we'll remove stubborn stains, moss, and algae, restoring your roof to its original beauty. Let us revitalize your roof, improve its durability, and enhance the overall aesthetic of your home.</p>
+					</div>
+				</div>
+				<div className="row p-3">
+					<img src="./img/ServiceDecks.png" className="img-fluid col-6 col-xl-3 h-100 m-auto" alt="..."></img>
+					<div className="col-xl col-12">
+						<h2 className="text-xl-start text-center">Deck Cleaning & Staining</h2>
+						<p className="fs-5 lg paragraph">Transform your weathered wood deck into a stunning outdoor oasis with our comprehensive deck cleaning and staining services. At Dallas Powerwash Pros, we specialize in reviving and protecting wooden decks, ensuring they stand the test of time while maintaining their natural beauty. We pay meticulous attention to detail, ensuring every inch of your deck is rejuvenated. Once the deck is clean and dry, we expertly apply high-quality wood stains or sealants, carefully chosen to enhance the natural grain and color of your deck while providing superior protection against the elements. Our goal is to create a deck that not only looks stunning but also withstands the rigors of outdoor conditions for years to come. </p>
+					</div>
+				</div>
+			</section>
+			<footer className="container-fluid bg-dark text-white">
+
+			</footer>
 		</div>
 	);
 }
