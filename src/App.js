@@ -142,6 +142,22 @@ function App() {
 					</div>
 				</div>
 			</section>
+			<section id="about" className="bg-light">
+				<div className="container">
+					<h1 className="">About Us</h1>
+					<p className="paragraph">Welcome to Dallas Powerwash Pros! We are a leading pressure washing company dedicated to providing exceptional services to our valued clients in the Dallas area. With a team of highly skilled professionals and state-of-the-art equipment, we specialize in revitalizing and enhancing the appearance of residential and commercial properties.
+					<br></br>
+					At Dallas Powerwash Pros, we understand the importance of maintaining a clean and well-maintained exterior. Our goal is to help you achieve a spotless and appealing property that leaves a lasting impression. Whether you need your home's siding cleaned, your driveway restored to its former glory, or your commercial building sparkling with cleanliness, we have the expertise and resources to get the job done right.
+					<br></br>
+					What sets us apart from the competition is our unwavering commitment to customer satisfaction. We prioritize open communication and listen to your unique needs and preferences. Our team works diligently to tailor our services to meet your specific requirements, ensuring that every project is completed to your utmost satisfaction.
+					<br></br>
+					When you choose Dallas Powerwash Pros, you can expect nothing short of exceptional results. We combine our industry knowledge with cutting-edge techniques and eco-friendly cleaning solutions to deliver outstanding outcomes without compromising the environment. Our team is fully licensed and insured, giving you peace of mind knowing that your property is in capable hands.
+					<br></br>
+					We take pride in our reputation for delivering prompt, reliable, and affordable services. With us, you can experience hassle-free scheduling, transparent pricing, and efficient project management. Our commitment to excellence and our passion for what we do have made us the trusted choice for countless residential and commercial clients throughout Dallas.
+					<br></br>
+					Thank you for considering Dallas Powerwash Pros for your pressure washing needs. We look forward to partnering with you to transform your property and exceed your expectations. Contact us today to discuss your project and receive a free estimate.</p>
+				</div>
+			</section>
 			<footer className="container-fluid bg-dark text-white">
 
 			</footer>
