@@ -90,24 +90,27 @@ function App() {
 					</div>
 				</div>
 			</nav>
-			<header className="App-header">
+			<div className="z-n1 img-gradiant ">
 				<img
-					src={logo}
-					className="App-logo image img-fluid container-sm"
-					alt="logo"
-				/>
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
+					src="./img/DeckCleaningGradient.png"
+					className="vh-100 w-100 object-fit-cover img-gradiant z-0"
+					alt="..."
+				></img>
+				<div className=" position-absolute top-50 start-50 translate-middle">
+					<h1 className="text-white fw-bold fs-1">
+						Dallas PressureWash Pros
+					</h1>
+					<p className="text-white fs-4">
+						We are the best in the business
+					</p>
+					<a className="btn btn-info text-dark fw-medium fs-3 m-3 " href="https://calendly.com/dallaspowerwashpros/free-quote-evaluation" target="blank">
+						Book Now
+					</a>
+					<button className="btn btn-info text-dark fw-medium fs-3 m-3" href="tel:9729465331">
+						Call Us
+					</button>
+				</div>
+			</div>
 		</div>
 	);
 }
