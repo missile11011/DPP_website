@@ -16,7 +16,7 @@ function App() {
 				<div className="navbar-collapse collapse col">
 					<ul className="navbar-nav mx-auto">
 						<li className="nav-item">
-							<a className="nav-link" href="#">
+							<a className="nav-link" href="#home">
 								Home
 							</a>
 						</li>
@@ -26,12 +26,12 @@ function App() {
 							</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#">
+							<a className="nav-link" href="#about">
 								About
 							</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#">
+							<a className="nav-link" href="#contact">
 								Contact
 							</a>
 						</li>
@@ -67,7 +67,7 @@ function App() {
 						</button>
 						<ul className="dropdown-menu dropdown-menu-end">
 							<li>
-								<a className="dropdown-item" href="#">
+								<a className="dropdown-item" href="#home">
 									Home
 								</a>
 							</li>
@@ -77,12 +77,12 @@ function App() {
 								</a>
 							</li>
 							<li>
-								<a className="dropdown-item" href="#">
+								<a className="dropdown-item" href="#about">
 									About
 								</a>
 							</li>
 							<li>
-								<a className="dropdown-item" href="#">
+								<a className="dropdown-item" href="#contact">
 									Contact
 								</a>
 							</li>
@@ -92,7 +92,7 @@ function App() {
 			</nav>
 			<section id="home">
 				<img
-					src="./img/DeckCleaningGradient.png"
+					src="./img/DeckCleaningGradientRescaled.png"
 					className="vh-100 w-100 object-fit-cover img-gradiant z-0"
 					alt="..."
 				></img>
@@ -142,20 +142,40 @@ function App() {
 					</div>
 				</div>
 			</section>
-			<section id="about" className="bg-light">
+			<section id="about" className="bg-light p-4">
 				<div className="container">
-					<h1 className="">About Us</h1>
-					<p className="paragraph">Welcome to Dallas Powerwash Pros! We are a leading pressure washing company dedicated to providing exceptional services to our valued clients in the Dallas area. With a team of highly skilled professionals and state-of-the-art equipment, we specialize in revitalizing and enhancing the appearance of residential and commercial properties.
-					<br></br>
-					At Dallas Powerwash Pros, we understand the importance of maintaining a clean and well-maintained exterior. Our goal is to help you achieve a spotless and appealing property that leaves a lasting impression. Whether you need your home's siding cleaned, your driveway restored to its former glory, or your commercial building sparkling with cleanliness, we have the expertise and resources to get the job done right.
-					<br></br>
-					What sets us apart from the competition is our unwavering commitment to customer satisfaction. We prioritize open communication and listen to your unique needs and preferences. Our team works diligently to tailor our services to meet your specific requirements, ensuring that every project is completed to your utmost satisfaction.
-					<br></br>
-					When you choose Dallas Powerwash Pros, you can expect nothing short of exceptional results. We combine our industry knowledge with cutting-edge techniques and eco-friendly cleaning solutions to deliver outstanding outcomes without compromising the environment. Our team is fully licensed and insured, giving you peace of mind knowing that your property is in capable hands.
-					<br></br>
-					We take pride in our reputation for delivering prompt, reliable, and affordable services. With us, you can experience hassle-free scheduling, transparent pricing, and efficient project management. Our commitment to excellence and our passion for what we do have made us the trusted choice for countless residential and commercial clients throughout Dallas.
-					<br></br>
-					Thank you for considering Dallas Powerwash Pros for your pressure washing needs. We look forward to partnering with you to transform your property and exceed your expectations. Contact us today to discuss your project and receive a free estimate.</p>
+					<h1 className="justify-content-center">About Us</h1>
+					<p className="paragraph fs-5">
+					Welcome to Dallas Powerwash Pros! We are a leading pressure washing company dedicated to providing exceptional services to our valued clients in the Dallas area. We specialize in revitalizing and enhancing the appearance of residential and commercial properties. We understand the importance of maintaining a clean and well-maintained home at Dallas Powerwash Pros. Whether you need your home's siding cleaned, your driveway restored to its former glory, or your commercial building sparkling with cleanliness, we have the expertise and resources to get the job done right.	
+					</p>
+					<p className="paragraph fs-5">
+						What sets us apart from the competition is our unwavering commitment to customer satisfaction. We prioritize open communication and attention to your home. Our team works diligently to tailor our services to meet your specific requirements, ensuring that every project is completed to your utmost satisfaction. We combine our industry knowledge with cutting-edge techniques and eco-friendly cleaning solutions to deliver outstanding outcomes without compromising the environment.
+					</p>
+					<p className="paragraph fs-5">
+						Our commitment to excellence and our passion for what we do have made us the trusted choice for countless residential and commercial clients throughout Dallas. We look forward to partnering with you to transform your property and exceed your expectations. Contact us today to discuss your project and receive a free estimate.
+					</p>
+				</div>
+			</section>
+			<section id="contact" className="bg-dark text-white">
+				<div className="container p-4">
+					<h1 className="justify-content-center p-3">Contact Us</h1>
+					<div className="row row-cols-2 row-cols-xl-3 justify-content-center">
+						<div className="col">
+							<h2>Phone</h2>
+							<p className="fs-4">972-946-5331</p>
+							<a type="button" className="btn btn-primary btn-lg" href="tel:+19729465331">Call Us</a>
+						</div>
+						<div className="col">
+							<h2>Email</h2>
+							<p className="fs-4">info@dallaspowerwashpros.com</p>
+							<a type="button" className="btn btn-primary btn-lg" href="mailto:info@dallaspowerwashpros.com">Email Us</a>
+						</div>
+						<div className="col">
+							<h2>Hours</h2>
+							<p className="fs-4">Mon-Fri: 8am-5pm</p>
+							<a type="button" className="btn btn-primary btn-lg" href="https://calendly.com/dallaspowerwashpros/free-quote-evaluation">Schedule Now</a>
+						</div>
+					</div>
 				</div>
 			</section>
 			<footer className="container-fluid bg-dark text-white">
