@@ -480,12 +480,52 @@ function App() {
 					<p className="paragraph fs-5">
 					Welcome to Dallas Powerwash Pros! We are a leading pressure washing company dedicated to providing exceptional services to our valued clients in the Dallas area. We specialize in revitalizing and enhancing the appearance of residential and commercial properties. We understand the importance of maintaining a clean and well-maintained home at Dallas Powerwash Pros. Whether you need your home's siding cleaned, your driveway restored to its former glory, or your commercial building sparkling with cleanliness, we have the expertise and resources to get the job done right.	
 					</p>
-					<p className="paragraph fs-5">
+					<div className="row">
+						<img src="./img/AboutLogo.png" className="h-100 col-12 col-md-6"></img>
+						<div className="col-12 col-md-6">
+							<h1>We Get Rid Of</h1>
+							<ul className="row row-cols-3 row-cols-md-1 text-start">
+								<il calssname="">
+									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+									<p className="d-inline fs-2">Oil Stains</p>
+								</il>
+								<il calssname="col">
+									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+									<p className="d-inline fs-2">Grafitee</p>
+								</il>
+								<il calssname="col">
+									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+									<p className="d-inline fs-2">Rust</p>
+								</il>
+								<il calssname="col">
+									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+									<p className="d-inline fs-2">Mold</p>
+								</il>
+								<il calssname="col">
+									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+									<p className="d-inline fs-2">Algae</p>
+								</il>
+								<il calssname="col">
+									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+									<p className="d-inline fs-2">Meldew</p>
+								</il>
+								<il calssname="col">
+									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+									<p className="d-inline fs-2">General Dirt</p>
+								</il>
+								<il calssname="col">
+									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+									<p className="d-inline fs-2">And More</p>
+								</il>
+							</ul>
+						</div>
+					</div>
+					{/* <p className="paragraph fs-5">
 						What sets us apart from the competition is our unwavering commitment to customer satisfaction. We prioritize open communication and attention to your home. Our team works diligently to tailor our services to meet your specific requirements, ensuring that every project is completed to your utmost satisfaction. We combine our industry knowledge with cutting-edge techniques and eco-friendly cleaning solutions to deliver outstanding outcomes without compromising the environment.
 					</p>
 					<p className="paragraph fs-5">
 						Our commitment to excellence and our passion for what we do have made us the trusted choice for countless residential and commercial clients throughout Dallas. We look forward to partnering with you to transform your property and exceed your expectations. Contact us today to discuss your project and receive a free estimate.
-					</p>
+					</p> */}
 				</div>
 			</section>
 			<section id="contact" className="bg-dark text-white">
