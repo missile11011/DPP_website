@@ -3,26 +3,32 @@ import {animate, motion} from "framer-motion";
 import {useEffect, useState} from "react";
 
 function App() {
-	const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width: 992px)").matches);
+	const [isMobile, setIsMobile] = useState(
+		window.matchMedia("(max-width: 992px)").matches
+	);
 	const [isNavOpen, setIsNavOpen] = useState(false);
-	window.addEventListener("resize", (event) => {setIsMobile(window.matchMedia("(max-width: 992px)").matches)});
+	window.addEventListener("resize", (event) => {
+		setIsMobile(window.matchMedia("(max-width: 992px)").matches);
+	});
 	const hoverHandeler = (e) => {
-		e.target.className = "bg-info rounded-pill text-dark nav-link"
-	}
+		e.target.className = "bg-info rounded-pill text-dark nav-link";
+	};
 	const leaveHandeler = (e) => {
-		e.target.className = "nav-link rounded-pill text-white"
-	}
-	useEffect(()=>{
-		if (isNavOpen == false){
+		e.target.className = "nav-link rounded-pill text-white";
+	};
+	useEffect(() => {
+		if (isNavOpen == false) {
 			animate("#navbar-mobile", {opacity: 0}, {duration: 1});
-			setTimeout(()=>{document.getElementById("navbar-mobile").style.display = "none";}, 1000);
-		}
-		else if (isMobile == false) {
-			animate("#navbar-mobile", {opacity: 0}, {duration: 1})
-			setTimeout(()=>{document.getElementById("navbar-mobile").style.display = "none";}, 1000);
-			setIsNavOpen(false);	
-		}
-		else{
+			setTimeout(() => {
+				document.getElementById("navbar-mobile").style.display = "none";
+			}, 1000);
+		} else if (isMobile == false) {
+			animate("#navbar-mobile", {opacity: 0}, {duration: 1});
+			setTimeout(() => {
+				document.getElementById("navbar-mobile").style.display = "none";
+			}, 1000);
+			setIsNavOpen(false);
+		} else {
 			animate("#navbar-mobile", {opacity: 1}, {duration: 1});
 			document.getElementById("navbar-mobile").style.display = "block";
 		}
@@ -41,22 +47,50 @@ function App() {
 				<div className="navbar-collapse collapse row-cols-auto">
 					<ul className="navbar-nav mx-auto">
 						<li className="nav-item">
-							<motion.a className="nav-link rounded-pill text-white" onMouseEnter={(e)=> hoverHandeler(e)} onMouseLeave={(e)=> leaveHandeler(e)} whileHover={{scale: 1.2}} transition={{ease:"easeIn", duration:.25}} href="#home">
+							<motion.a
+								className="nav-link rounded-pill text-white"
+								onMouseEnter={(e) => hoverHandeler(e)}
+								onMouseLeave={(e) => leaveHandeler(e)}
+								whileHover={{scale: 1.2}}
+								transition={{ease: "easeIn", duration: 0.25}}
+								href="#home"
+							>
 								Home
 							</motion.a>
 						</li>
 						<li className="nav-item">
-							<motion.a className="nav-link rounded-pill text-white" onMouseEnter={(e)=> hoverHandeler(e)} onMouseLeave={(e)=> leaveHandeler(e)} whileHover={{scale: 1.2}} transition={{ease:"easeIn", duration:.25}} href="#services">
+							<motion.a
+								className="nav-link rounded-pill text-white"
+								onMouseEnter={(e) => hoverHandeler(e)}
+								onMouseLeave={(e) => leaveHandeler(e)}
+								whileHover={{scale: 1.2}}
+								transition={{ease: "easeIn", duration: 0.25}}
+								href="#services"
+							>
 								Services
 							</motion.a>
 						</li>
 						<li className="nav-item">
-							<motion.a className="nav-link rounded-pill text-white" onMouseEnter={(e)=> hoverHandeler(e)} onMouseLeave={(e)=> leaveHandeler(e)} whileHover={{scale: 1.2}} transition={{ease:"easeIn", duration:.25}} href="#about">
+							<motion.a
+								className="nav-link rounded-pill text-white"
+								onMouseEnter={(e) => hoverHandeler(e)}
+								onMouseLeave={(e) => leaveHandeler(e)}
+								whileHover={{scale: 1.2}}
+								transition={{ease: "easeIn", duration: 0.25}}
+								href="#about"
+							>
 								Abouts
 							</motion.a>
 						</li>
 						<li className="nav-item">
-							<motion.a className="nav-link rounded-pill text-white" onMouseEnter={(e)=> hoverHandeler(e)} onMouseLeave={(e)=> leaveHandeler(e)} whileHover={{scale: 1.2}} transition={{ease:"easeIn", duration:.25}} href="#contact">
+							<motion.a
+								className="nav-link rounded-pill text-white"
+								onMouseEnter={(e) => hoverHandeler(e)}
+								onMouseLeave={(e) => leaveHandeler(e)}
+								whileHover={{scale: 1.2}}
+								transition={{ease: "easeIn", duration: 0.25}}
+								href="#contact"
+							>
 								Contact
 							</motion.a>
 						</li>
@@ -84,40 +118,63 @@ function App() {
 							className="btn btn-secondary navbar-toggler px-3"
 							type="button"
 							aria-expanded="false"
-							onClick={()=>setIsNavOpen(true)}
+							onClick={() => setIsNavOpen(true)}
 						>
 							<span className="navbar-toggler-icon"></span>
 						</button>
-						
 					</div>
 				</div>
 			</nav>
-			<motion.div id="navbar-mobile" className="navbar vh-100 z-1 bg-white position-fixed start-0 top-0 col-12" initial={{opacity:0}}>
-				<a className="fs-1 position-fixed top-0 end-0 p-5" onClick={()=>setIsNavOpen(false)} href="#">
-					<span className="bi bi-x-lg text-black " ></span>
-				</a>	
-					<ul className="list-group fs-1 mx-auto position-fixed top-50 start-50 translate-middle">
-						<li className="dropdown-item p-4">
-							<a className="dropdown-item" href="#home" onClick={()=>setIsNavOpen(true)}>
-								Home
-							</a>
-						</li>
-						<li className="dropdown-item p-4">
-							<a className="dropdown-item" href="#services" onClick={()=>setIsNavOpen(true)}>
-								Services
-							</a>
-						</li>
-						<li className="dropdown-item p-4">
-							<a className="dropdown-item" href="#about" onClick={()=>setIsNavOpen(true)}>
-								About
-							</a>
-						</li>
-						<li className="dropdown-item p-4">
-							<a className="dropdown-item" href="#contact" onClick={()=>setIsNavOpen(true)}>
-								Contact
-							</a>
-						</li>
-					</ul>
+			<motion.div
+				id="navbar-mobile"
+				className="navbar vh-100 z-1 bg-white position-fixed start-0 top-0 col-12"
+				initial={{opacity: 0}}
+			>
+				<a
+					className="fs-1 position-fixed top-0 end-0 p-5"
+					onClick={() => setIsNavOpen(false)}
+					href="#"
+				>
+					<span className="bi bi-x-lg text-black "></span>
+				</a>
+				<ul className="list-group fs-1 mx-auto position-fixed top-50 start-50 translate-middle">
+					<li className="dropdown-item p-4">
+						<a
+							className="dropdown-item"
+							href="#home"
+							onClick={() => setIsNavOpen(true)}
+						>
+							Home
+						</a>
+					</li>
+					<li className="dropdown-item p-4">
+						<a
+							className="dropdown-item"
+							href="#services"
+							onClick={() => setIsNavOpen(true)}
+						>
+							Services
+						</a>
+					</li>
+					<li className="dropdown-item p-4">
+						<a
+							className="dropdown-item"
+							href="#about"
+							onClick={() => setIsNavOpen(true)}
+						>
+							About
+						</a>
+					</li>
+					<li className="dropdown-item p-4">
+						<a
+							className="dropdown-item"
+							href="#contact"
+							onClick={() => setIsNavOpen(true)}
+						>
+							Contact
+						</a>
+					</li>
+				</ul>
 			</motion.div>
 			<section id="home">
 				<img
@@ -168,32 +225,37 @@ function App() {
 								more
 							</motion.button>
 							<motion.div
-								class="modal fade"
+								className="modal fade"
 								id="DrivewayServiceModal"
-								tabindex="-1"
+								tabIndex="-1"
 								aria-labelledby="DrivewayServiceModalLabel"
 								aria-hidden="true"
-								initial={{scale:.3}}
-								whileInView={{scale: 1 }}
-								transition={{ type: "spring", damping: 13, bounce: 1, duration: 1 }}
+								initial={{scale: 0.3}}
+								whileInView={{scale: 1}}
+								transition={{
+									type: "spring",
+									damping: 13,
+									bounce: 1,
+									duration: 1,
+								}}
 							>
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
+								<div className="modal-dialog">
+									<div className="modal-content">
+										<div className="modal-header">
 											<h1
-												class="modal-title fs-5"
+												className="modal-title fs-5"
 												id="DrivewayServiceModalLabel"
 											>
 												Driveway Cleaning
 											</h1>
 											<button
 												type="button"
-												class="btn-close"
+												className="btn-close"
 												data-bs-dismiss="modal"
 												aria-label="Close"
 											></button>
 										</div>
-										<div class="modal-body">
+										<div className="modal-body">
 											<p className="fs-5 paragraph">
 												Revitalize your driveway with
 												our professional pressure
@@ -211,16 +273,16 @@ function App() {
 												aesthetics of your property.
 											</p>
 										</div>
-										<div class="modal-footer">
+										<div className="modal-footer">
 											<button
 												type="button"
-												class="btn btn-secondary"
+												className="btn btn-secondary"
 												data-bs-dismiss="modal"
 											>
 												Close
 											</button>
 											<a
-												class="btn btn-primary"
+												className="btn btn-primary"
 												href="https://calendly.com/dallaspowerwashpros/free-quote-evaluation"
 												target="blank"
 											>
@@ -250,32 +312,37 @@ function App() {
 								more
 							</motion.button>
 							<motion.div
-								class="modal fade"
+								className="modal fade"
 								id="SidingServiceModal"
-								tabindex="-1"
+								tabIndex="-1"
 								aria-labelledby="SidingServiceModalLabel"
 								aria-hidden="true"
-								initial={{scale:.3}}
-								whileInView={{scale: 1 }}
-								transition={{ type: "spring", damping: 13, bounce: 1, duration: 1 }}
+								initial={{scale: 0.3}}
+								whileInView={{scale: 1}}
+								transition={{
+									type: "spring",
+									damping: 13,
+									bounce: 1,
+									duration: 1,
+								}}
 							>
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
+								<div className="modal-dialog">
+									<div className="modal-content">
+										<div className="modal-header">
 											<h1
-												class="modal-title fs-5"
+												className="modal-title fs-5"
 												id="SidingServiceModalLabel"
 											>
 												Siding Cleaning
 											</h1>
 											<button
 												type="button"
-												class="btn-close"
+												className="btn-close"
 												data-bs-dismiss="modal"
 												aria-label="Close"
 											></button>
 										</div>
-										<div class="modal-body">
+										<div className="modal-body">
 											<p className="fs-5 paragraph">
 												Revive the beauty of your home's
 												siding with our professional
@@ -299,16 +366,16 @@ function App() {
 												unmatched customer satisfaction.
 											</p>
 										</div>
-										<div class="modal-footer">
+										<div className="modal-footer">
 											<button
 												type="button"
-												class="btn btn-secondary"
+												className="btn btn-secondary"
 												data-bs-dismiss="modal"
 											>
 												Close
 											</button>
 											<a
-												class="btn btn-primary"
+												className="btn btn-primary"
 												href="https://calendly.com/dallaspowerwashpros/free-quote-evaluation"
 												target="blank"
 											>
@@ -337,34 +404,39 @@ function App() {
 							>
 								more
 							</motion.button>
-							
+
 							<motion.div
-								class="modal"
+								className="modal"
 								id="RoofServiceModal"
-								tabindex="-1"
+								tabIndex="-1"
 								aria-labelledby="RoofServiceModalLabel"
 								aria-hidden="true"
-								initial={{scale:.3}}
-								whileInView={{scale: 1 }}
-								transition={{ type: "spring", damping: 13, bounce: 1, duration: 1 }}
+								initial={{scale: 0.3}}
+								whileInView={{scale: 1}}
+								transition={{
+									type: "spring",
+									damping: 13,
+									bounce: 1,
+									duration: 1,
+								}}
 							>
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
+								<div className="modal-dialog">
+									<div className="modal-content">
+										<div className="modal-header">
 											<h1
-												class="modal-title fs-5"
+												className="modal-title fs-5"
 												id="RoofServiceModalLabel"
 											>
 												Roof Cleaning
 											</h1>
 											<button
 												type="button"
-												class="btn-close"
+												className="btn-close"
 												data-bs-dismiss="modal"
 												aria-label="Close"
 											></button>
 										</div>
-										<div class="modal-body">
+										<div className="modal-body">
 											<p className="fs-5 paragraph">
 												Transform the appearance of your
 												roof with our expert roof
@@ -386,16 +458,16 @@ function App() {
 												overall aesthetic of your home.
 											</p>
 										</div>
-										<div class="modal-footer">
+										<div className="modal-footer">
 											<button
 												type="button"
-												class="btn btn-secondary"
+												className="btn btn-secondary"
 												data-bs-dismiss="modal"
 											>
 												Close
 											</button>
 											<a
-												class="btn btn-primary"
+												className="btn btn-primary"
 												href="https://calendly.com/dallaspowerwashpros/free-quote-evaluation"
 												target="blank"
 											>
@@ -405,7 +477,6 @@ function App() {
 									</div>
 								</div>
 							</motion.div>
-							
 						</div>
 					</div>
 					<div className="col p-3">
@@ -426,32 +497,37 @@ function App() {
 								more
 							</motion.button>
 							<motion.div
-								class="modal"
+								className="modal"
 								id="DeckServiceModal"
-								tabindex="-1"
+								tabIndex="-1"
 								aria-labelledby="DeckServiceModalLabel"
 								aria-hidden="true"
-								initial={{scale:.3}}
-								whileInView={{scale: 1 }}
-								transition={{ type: "spring", damping: 13, bounce: 1, duration: 1 }}
+								initial={{scale: 0.3}}
+								whileInView={{scale: 1}}
+								transition={{
+									type: "spring",
+									damping: 13,
+									bounce: 1,
+									duration: 1,
+								}}
 							>
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
+								<div className="modal-dialog">
+									<div className="modal-content">
+										<div className="modal-header">
 											<h1
-												class="modal-title fs-5"
+												className="modal-title fs-5"
 												id="DeckServiceModalLabel"
 											>
 												Deck & Fence Staining
 											</h1>
 											<button
 												type="button"
-												class="btn-close"
+												className="btn-close"
 												data-bs-dismiss="modal"
 												aria-label="Close"
 											></button>
 										</div>
-										<div class="modal-body">
+										<div className="modal-body">
 											<p className="fs-5 lg paragraph">
 												Transform your weathered wood
 												deck into a stunning outdoor
@@ -479,16 +555,16 @@ function App() {
 												conditions for years to come.{" "}
 											</p>
 										</div>
-										<div class="modal-footer">
+										<div className="modal-footer">
 											<button
 												type="button"
-												class="btn btn-secondary"
+												className="btn btn-secondary"
 												data-bs-dismiss="modal"
 											>
 												Close
 											</button>
 											<a
-												class="btn btn-primary"
+												className="btn btn-primary"
 												href="https://calendly.com/dallaspowerwashpros/free-quote-evaluation"
 												target="blank"
 											>
@@ -506,45 +582,60 @@ function App() {
 				<div className="container">
 					<h1 className="justify-content-center">About Us</h1>
 					<p className="paragraph fs-5">
-					Welcome to Dallas Powerwash Pros! We are a leading pressure washing company dedicated to providing exceptional services to our valued clients in the Dallas area. We specialize in revitalizing and enhancing the appearance of residential and commercial properties. We understand the importance of maintaining a clean and well-maintained home at Dallas Powerwash Pros. Whether you need your home's siding cleaned, your driveway restored to its former glory, or your commercial building sparkling with cleanliness, we have the expertise and resources to get the job done right.	
+						Welcome to Dallas Powerwash Pros! We are a leading
+						pressure washing company dedicated to providing
+						exceptional services to our valued clients in the Dallas
+						area. We specialize in revitalizing and enhancing the
+						appearance of residential and commercial properties. We
+						understand the importance of maintaining a clean and
+						well-maintained home at Dallas Powerwash Pros. Whether
+						you need your home's siding cleaned, your driveway
+						restored to its former glory, or your commercial
+						building sparkling with cleanliness, we have the
+						expertise and resources to get the job done right.
 					</p>
 					<div className="row">
-						<img src="./img/AboutLogo.png" className="h-100 col-12 col-md-6"></img>
+						<img
+							src="./img/AboutLogo.png"
+							className="h-100 col-12 col-md-6"
+						></img>
 						<div className="col-12 col-md-6">
 							<h1>We Get Rid Of</h1>
-							<ul className="row row-cols-auto row-cols-md-1 text-md-start justify-content-evenly">
-								<il calssname="">
-									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+							<ul className="row row-cols-auto row-cols-md-1 text-md-start justify-content-evenly list-group-flush">
+								<li className="col list-group-item">
+									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Oil Stains</p>
-								</il>
-								<il calssname="col">
-									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+								</li>
+								<li className="col list-group-item">
+									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Grafitee</p>
-								</il>
-								<il calssname="col">
-									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+								</li>
+								<li className="col list-group-item">
+									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Rust</p>
-								</il>
-								<il calssname="col">
-									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+								</li>
+								<li className="col list-group-item">
+									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Mold</p>
-								</il>
-								<il calssname="col">
-									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+								</li>
+								<li className="col list-group-item">
+									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Algae</p>
-								</il>
-								<il calssname="col">
-									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+								</li>
+								<li className="col list-group-item">
+									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Meldew</p>
-								</il>
-								<il calssname="col">
-									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
-									<p className="d-inline fs-2">General Dirt</p>
-								</il>
-								<il calssname="col">
-									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+								</li>
+								<li className="col list-group-item">
+									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
+									<p className="d-inline fs-2">
+										General Dirt
+									</p>
+								</li>
+								<li className="col list-group-item">
+									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">And More</p>
-								</il>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -563,24 +654,42 @@ function App() {
 						<div className="col">
 							<h2>Phone</h2>
 							<p className="fs-4">972-946-5331</p>
-							<a type="button" className="btn btn-primary btn-lg" href="tel:+19729465331">Call Us</a>
+							<a
+								type="button"
+								className="btn btn-primary btn-lg"
+								href="tel:+19729465331"
+							>
+								Call Us
+							</a>
 						</div>
 						<div className="col">
 							<h2>Email</h2>
-							<p className="fs-4 text-break">info@dallaspowerwashpros.com</p>
-							<a type="button" className="btn btn-primary btn-lg" href="mailto:info@dallaspowerwashpros.com">Email Us</a>
+							<p className="fs-4 text-break">
+								info@dallaspowerwashpros.com
+							</p>
+							<a
+								type="button"
+								className="btn btn-primary btn-lg"
+								href="mailto:info@dallaspowerwashpros.com"
+							>
+								Email Us
+							</a>
 						</div>
 						<div className="col">
 							<h2>Hours</h2>
 							<p className="fs-4">Mon-Fri: 8am-5pm</p>
-							<a type="button" className="btn btn-primary btn-lg" href="https://calendly.com/dallaspowerwashpros/free-quote-evaluation">Schedule Now</a>
+							<a
+								type="button"
+								className="btn btn-primary btn-lg"
+								href="https://calendly.com/dallaspowerwashpros/free-quote-evaluation"
+							>
+								Schedule Now
+							</a>
 						</div>
 					</div>
 				</div>
 			</section>
-			<footer className="container-fluid bg-dark text-white">
-
-			</footer>
+			<footer className="container-fluid bg-dark text-white"></footer>
 		</div>
 	);
 }
