@@ -1,9 +1,32 @@
-import logo from "./logo.svg";
 import "./App.css";
-import {animate, motion, AnimatePresence} from "framer-motion";
-import {useState} from "react";
+import {animate, motion} from "framer-motion";
+import {useEffect, useState} from "react";
 
 function App() {
+	const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width: 992px)").matches);
+	const [isNavOpen, setIsNavOpen] = useState(false);
+	window.addEventListener("resize", (event) => {setIsMobile(window.matchMedia("(max-width: 992px)").matches)});
+	const hoverHandeler = (e) => {
+		e.target.className = "bg-info rounded-pill text-dark nav-link"
+	}
+	const leaveHandeler = (e) => {
+		e.target.className = "nav-link rounded-pill text-white"
+	}
+	useEffect(()=>{
+		if (isNavOpen == false){
+			animate("#navbar-mobile", {opacity: 0}, {duration: 1});
+			setTimeout(()=>{document.getElementById("navbar-mobile").style.display = "none";}, 1000);
+		}
+		else if (isMobile == false) {
+			animate("#navbar-mobile", {opacity: 0}, {duration: 1})
+			setTimeout(()=>{document.getElementById("navbar-mobile").style.display = "none";}, 1000);
+			setIsNavOpen(false);	
+		}
+		else{
+			animate("#navbar-mobile", {opacity: 1}, {duration: 1});
+			document.getElementById("navbar-mobile").style.display = "block";
+		}
+	}, [isNavOpen]);
 	return (
 		<div className="App">
 			<nav className="navbar navbar-expand-lg navbar-dark bg-dark nav position-static">
@@ -15,27 +38,27 @@ function App() {
 						alt="logo"
 					/>
 				</div>
-				<div className="navbar-collapse collapse col">
+				<div className="navbar-collapse collapse row-cols-auto">
 					<ul className="navbar-nav mx-auto">
 						<li className="nav-item">
-							<a className="nav-link" href="#home">
+							<motion.a className="nav-link rounded-pill text-white" onMouseEnter={(e)=> hoverHandeler(e)} onMouseLeave={(e)=> leaveHandeler(e)} whileHover={{scale: 1.2}} transition={{ease:"easeIn", duration:.25}} href="#home">
 								Home
-							</a>
+							</motion.a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#services">
+							<motion.a className="nav-link rounded-pill text-white" onMouseEnter={(e)=> hoverHandeler(e)} onMouseLeave={(e)=> leaveHandeler(e)} whileHover={{scale: 1.2}} transition={{ease:"easeIn", duration:.25}} href="#services">
 								Services
-							</a>
+							</motion.a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#about">
-								About
-							</a>
+							<motion.a className="nav-link rounded-pill text-white" onMouseEnter={(e)=> hoverHandeler(e)} onMouseLeave={(e)=> leaveHandeler(e)} whileHover={{scale: 1.2}} transition={{ease:"easeIn", duration:.25}} href="#about">
+								Abouts
+							</motion.a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#contact">
+							<motion.a className="nav-link rounded-pill text-white" onMouseEnter={(e)=> hoverHandeler(e)} onMouseLeave={(e)=> leaveHandeler(e)} whileHover={{scale: 1.2}} transition={{ease:"easeIn", duration:.25}} href="#contact">
 								Contact
-							</a>
+							</motion.a>
 						</li>
 					</ul>
 				</div>
@@ -56,41 +79,46 @@ function App() {
 					</button>
 				</div>
 				<div className="col d-lg-none d-flex justify-content-end">
-					<div className="dropdown px-3">
+					<div className="px-3">
 						<button
 							className="btn btn-secondary navbar-toggler px-3"
 							type="button"
-							data-bs-toggle="dropdown"
-							data-bs-auto-close="true"
 							aria-expanded="false"
+							onClick={()=>setIsNavOpen(true)}
 						>
 							<span className="navbar-toggler-icon"></span>
 						</button>
-						<ul className="dropdown-menu dropdown-menu-end">
-							<li>
-								<a className="dropdown-item" href="#home">
-									Home
-								</a>
-							</li>
-							<li>
-								<a className="dropdown-item" href="#services">
-									Services
-								</a>
-							</li>
-							<li>
-								<a className="dropdown-item" href="#about">
-									About
-								</a>
-							</li>
-							<li>
-								<a className="dropdown-item" href="#contact">
-									Contact
-								</a>
-							</li>
-						</ul>
+						
 					</div>
 				</div>
 			</nav>
+			<motion.div id="navbar-mobile" className="navbar vh-100 z-1 bg-white position-fixed start-0 top-0 col-12" initial={{opacity:0}}>
+				<a className="fs-1 position-fixed top-0 end-0 p-5" onClick={()=>setIsNavOpen(false)} href="#">
+					<span className="bi bi-x-lg text-black " ></span>
+				</a>	
+					<ul className="list-group fs-1 mx-auto position-fixed top-50 start-50 translate-middle">
+						<li className="dropdown-item p-4">
+							<a className="dropdown-item" href="#home" onClick={()=>setIsNavOpen(true)}>
+								Home
+							</a>
+						</li>
+						<li className="dropdown-item p-4">
+							<a className="dropdown-item" href="#services" onClick={()=>setIsNavOpen(true)}>
+								Services
+							</a>
+						</li>
+						<li className="dropdown-item p-4">
+							<a className="dropdown-item" href="#about" onClick={()=>setIsNavOpen(true)}>
+								About
+							</a>
+						</li>
+						<li className="dropdown-item p-4">
+							<a className="dropdown-item" href="#contact" onClick={()=>setIsNavOpen(true)}>
+								Contact
+							</a>
+						</li>
+					</ul>
+			</motion.div>
 			<section id="home">
 				<img
 					src="./img/DeckCleaningGradientRescaled.png"
@@ -484,7 +512,7 @@ function App() {
 						<img src="./img/AboutLogo.png" className="h-100 col-12 col-md-6"></img>
 						<div className="col-12 col-md-6">
 							<h1>We Get Rid Of</h1>
-							<ul className="row row-cols-3 row-cols-md-1 text-start">
+							<ul className="row row-cols-auto row-cols-md-1 text-md-start justify-content-evenly">
 								<il calssname="">
 									<i class="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Oil Stains</p>
@@ -539,7 +567,7 @@ function App() {
 						</div>
 						<div className="col">
 							<h2>Email</h2>
-							<p className="fs-4">info@dallaspowerwashpros.com</p>
+							<p className="fs-4 text-break">info@dallaspowerwashpros.com</p>
 							<a type="button" className="btn btn-primary btn-lg" href="mailto:info@dallaspowerwashpros.com">Email Us</a>
 						</div>
 						<div className="col">
