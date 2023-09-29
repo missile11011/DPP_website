@@ -1,12 +1,14 @@
 import "./App.css";
-import {animate, motion} from "framer-motion";
-import {useEffect, useState} from "react";
+import {animate, motion, useInView, stagger} from "framer-motion";
+import {useEffect, useState, useRef} from "react";
 
 function App() {
 	const [isMobile, setIsMobile] = useState(
 		window.matchMedia("(max-width: 992px)").matches
 	);
 	const [isNavOpen, setIsNavOpen] = useState(false);
+	const ref = useRef(null);
+	const isInView = useInView(ref);
 	window.addEventListener("resize", (event) => {
 		setIsMobile(window.matchMedia("(max-width: 992px)").matches);
 	});
@@ -32,7 +34,12 @@ function App() {
 			animate("#navbar-mobile", {opacity: 1}, {duration: 1});
 			document.getElementById("navbar-mobile").style.display = "block";
 		}
-	}, [isNavOpen]);
+		if (isInView) {
+			animate(".list-stagger", {opacity: 1, y: 0}, {delay: stagger(0.2)});
+		} else {
+			animate(".list-stagger", {opacity: 0, y: -100}, {duration: 0});
+		}
+	}, [isNavOpen, isInView]);
 	return (
 		<div className="App">
 			<nav className="navbar navbar-expand-lg navbar-dark bg-dark nav position-static">
@@ -599,44 +606,71 @@ function App() {
 							src="./img/AboutLogo.png"
 							className="h-100 col-12 col-md-6"
 						></img>
-						<div className="col-12 col-md-6">
+						<div className="col-12 col-md-6 test justify-content-center">
 							<h1>We Get Rid Of</h1>
-							<ul className="row row-cols-auto row-cols-md-1 text-md-start justify-content-evenly list-group-flush">
-								<li className="col list-group-item">
+							<motion.ul
+								className=" row row-cols-auto col-md-6 justify-content-evenly list-group-flush list-unstyled justify-content-md-start none mx-auto"
+								ref={ref}
+							>
+								<motion.li
+									className="col list-group-item list-stagger text-nowrap"
+									initial={{opacity: 0, y: -100}}
+								>
 									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Oil Stains</p>
-								</li>
-								<li className="col list-group-item">
+								</motion.li>
+								<motion.li
+									className="col list-group-item list-stagger text-nowrap"
+									initial={{opacity: 0, y: -100}}
+								>
 									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Grafitee</p>
-								</li>
-								<li className="col list-group-item">
+								</motion.li>
+								<motion.li
+									className="col list-group-item list-stagger text-nowrap"
+									initial={{opacity: 0, y: -100}}
+								>
 									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Rust</p>
-								</li>
-								<li className="col list-group-item">
+								</motion.li>
+								<motion.li
+									className="col list-group-item list-stagger text-nowrap"
+									initial={{opacity: 0, y: -100}}
+								>
 									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Mold</p>
-								</li>
-								<li className="col list-group-item">
+								</motion.li>
+								<motion.li
+									className="col list-group-item list-stagger text-nowrap"
+									initial={{opacity: 0, y: -100}}
+								>
 									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Algae</p>
-								</li>
-								<li className="col list-group-item">
+								</motion.li>
+								<motion.li
+									className="col list-group-item list-stagger text-nowrap"
+									initial={{opacity: 0, y: -100}}
+								>
 									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">Meldew</p>
-								</li>
-								<li className="col list-group-item">
+								</motion.li>
+								<motion.li
+									className="col list-group-item list-stagger text-nowrap"
+									initial={{opacity: 0, y: -100}}
+								>
 									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">
 										General Dirt
 									</p>
-								</li>
-								<li className="col list-group-item">
+								</motion.li>
+								<motion.li
+									className="col list-group-item list-stagger text-nowrap"
+									initial={{opacity: 0, y: -100}}
+								>
 									<i className="bi bi-droplet-fill text-primary d-inline ps-3 fs-2"></i>
 									<p className="d-inline fs-2">And More</p>
-								</li>
-							</ul>
+								</motion.li>
+							</motion.ul>
 						</div>
 					</div>
 					{/* <p className="paragraph fs-5">
