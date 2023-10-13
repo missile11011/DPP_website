@@ -108,16 +108,24 @@ function App() {
 						(972)946-5331
 					</p>
 					<div className="px-4">
-						<button className="btn btn-outline-success">
+						<a
+							type="button"
+							className="btn btn-outline-success"
+							href="tel:+19729465331"
+						>
 							CALL
-						</button>
+						</a>
 					</div>
 				</div>
 
 				<div className="px-4">
-					<button className="btn btn-outline-info d-lg-none d-flex">
+					<a
+						type="button"
+						className="btn btn-outline-info d-lg-none d-flex"
+						href="tel:+19729465331"
+					>
 						CALL (972)946-5331
-					</button>
+					</a>
 				</div>
 				<div className="col d-lg-none d-flex justify-content-end">
 					<div className="px-3">
@@ -203,17 +211,18 @@ function App() {
 					>
 						Book Now
 					</a>
-					<button
+					<a
+						type="button"
 						className="btn btn-info text-dark fw-medium fs-3 m-3"
 						href="tel:9729465331"
 					>
 						Call Us
-					</button>
+					</a>
 				</div>
 			</section>
 			<section id="services" className="container">
 				<h1 className="">Our Services</h1>
-				<div className="row align-items-end row-cols-1 row-cols-lg-4">
+				<div className="row align-items-end row-cols-2 row-cols-lg-4">
 					<div className="col p-3">
 						<h2 className="text-center">Driveway Cleaning</h2>
 						<img
@@ -606,10 +615,12 @@ function App() {
 							src="./img/AboutLogo.png"
 							className="h-100 col-12 col-md-6"
 						></img>
-						<div className="col-12 col-md-6 test justify-content-center">
-							<h1>We Get Rid Of</h1>
+						<div className="col-12 col-md-5 test mx-auto">
+							<h1 className="text-md-start text-center">
+								We Get Rid Of
+							</h1>
 							<motion.ul
-								className=" row row-cols-auto col-md-6 justify-content-evenly list-group-flush list-unstyled justify-content-md-start none mx-auto"
+								className=" row row-cols-auto row-cols-md-1 justify-content-evenly list-group-flush list-unstyled text-md-start"
 								ref={ref}
 							>
 								<motion.li
