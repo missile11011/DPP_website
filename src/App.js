@@ -1,6 +1,7 @@
 import "./App.css";
 import {animate, motion, useInView, stagger} from "framer-motion";
 import {useEffect, useState, useRef} from "react";
+import Footer from "./components/Footer";	
 
 function App() {
 	const [isMobile, setIsMobile] = useState(
@@ -734,7 +735,7 @@ function App() {
 					</div>
 				</div>
 			</section>
-			<footer className="container-fluid bg-dark text-white"></footer>
+			<Footer/>
 		</div>
 	);
 }
